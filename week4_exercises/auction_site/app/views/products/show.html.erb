@@ -1,0 +1,14 @@
+<h2><%= @product.title %></h2>
+
+<ul>
+	<% @product.attributes.dup.each do |key, value| %>
+	<div>
+		<%= key %>:  <%= value %>
+	</div>
+	<%end %>
+	<br>
+	
+	<%=link_to "Delete product", [@user, @product], method: :delete, data: {confirm: "Are you sure you want to delete this product?"} %>
+</ul>
+
+<%= link_to "Go back to account", user_path(@user)  %>

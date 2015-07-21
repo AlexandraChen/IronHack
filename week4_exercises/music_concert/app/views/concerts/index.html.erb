@@ -1,0 +1,19 @@
+<!-- index for concerts all concerts -->
+<center>
+<div class = "container">
+	
+	<h1>All concerts</h1>
+
+	<%= link_to "Add new concert", new_concert_path %>
+	<br>
+	<br>
+
+	<% @concerts.each do |concert| %>
+	<div>
+		<%= link_to concert.band, concert_path(concert.id)%>  playing at <%= concert.city %> on <%= concert.date.strftime("%d/%m") %>
+	</div>
+	<br>
+	<% end %>
+
+</div>
+</center>

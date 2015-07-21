@@ -1,0 +1,12 @@
+<h2><%= @product.title %></h2>
+
+<ul>
+	<% @product.attributes.dup.each do |key, value| %>
+	<div>
+		<%= key %>:  <%= value %>
+	</div>
+	<%end %>
+	<br>
+	
+	<%=link_to "See other products from this user", user_path(@product.user_id) %>
+</ul>

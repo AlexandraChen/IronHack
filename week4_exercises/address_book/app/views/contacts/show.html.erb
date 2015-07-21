@@ -1,0 +1,43 @@
+<html>
+	<body>
+		
+		<h2> <%=@contact.name.capitalize%></h2>
+
+
+		
+			<p>Address: <%= @contact.address %></p>
+			<p>Phone: <%= @contact.phone1 %></p>
+			<% if @contact.phone2.present? %>
+				<p>Secondary phone: <%= @contact.phone2 %></p>
+			<% end %>
+			<p>Email: <%= @contact.email1 %></p>
+			<% if @contact.email2.present? %>
+				<p>Secondary email: <%= @contact.email2 %></p>
+			<% end %>
+			<% if @contact.favorite === true %>
+				<p>* * Marked as favorite * *</p>
+			<% end %>
+
+
+			<%= form_tag("/contacts/mark_favorite", method: "get") do %>
+				<%= hidden_field_tag(:id, @contact.id)%>
+		    	<%= submit_tag("Mark as favorite") %>
+	    	<% end %>
+
+			
+			<p> <%= link_to "Edit contact", edit_contact_path(@contact)  %>
+				|
+				<%= link_to "Delete contact", contact_path(@contact), method: 'delete'  %>
+			</p>
+
+			<hr />
+			<p>
+				<%= link_to "View favorite contacts", contacts_favorite_path %>
+				|
+				<%= link_to "View all contacts", contacts_path %> 
+				|
+				<%= link_to "Create new contact", new_contact_path %>
+			</p>
+
+	</body>
+</html>

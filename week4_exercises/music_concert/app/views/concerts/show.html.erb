@@ -1,0 +1,44 @@
+
+<center>
+	<div class = "container">
+		<div class = "row">
+		
+			<h1><%= @concert.band %></h1>
+
+			<p> <strong>What? </strong> <%= @concert.description %> </p>
+			<P><strong>Where?</strong> <%= @concert.venue %> - <%= @concert.city %><p/>
+			<p><strong>When?</strong> <%= @concert.date.strftime("%d/%m/%y") %></p>
+			<p><strong>How much?</strong> <%= @concert.price %></p>
+		</div>
+
+		<br>
+		<br>
+
+
+		<div class = "row">
+			<div class = "col-sm-6 col-sm-offset-3">
+				<h4><strong>Comments about this concert</strong></h4>
+				<% if @comments.empty? %>
+					<p> Be the first who comment on this concert! :)</p>
+				<% else %>
+					<% @comments.each do |comment| %>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Posted by: <%= comment.name %></h3>
+							</div>
+							<div class="panel-body">
+								<%= comment.comment %>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+
+			
+
+			<%= render partial: 'comments/comments_form', comment: @comment %>
+
+			</div>
+		</div>
+	</div>
+</center>
+

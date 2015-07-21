@@ -1,0 +1,122 @@
+body{
+	font-family:'Roboto', sans-serif;
+	background-color: #E3E3E3;
+}
+
+
+.prof-pic{
+	width: 2em;
+	height: auto;
+}
+.quoter{
+	margin-top: 2em;
+	margin-left: -2em;
+}
+.tweet .prof-pic{
+	width: 2em;
+	height: auto;
+}
+.profpic_quote{
+	color:#aaa;
+	font-size: 0.8em;
+}
+
+.profpic_quote span{	
+	color: #2889D8;
+}
+
+.bounty{
+	border: 1px solid #E3E3E3;
+	border-radius: 0.5em;
+	background-color: white;
+}
+
+.tweet{
+	font-size: 1.1em;
+	margin-top: 0.5em;
+}
+.tweet li{
+	font-size: 0.8em;
+}
+.bounty.tweet{
+	height: 25em;
+	margin-top: -0.5em;
+}
+
+.tweet.headline{
+	border-bottom: 1px solid #E3E3E3;
+}
+
+.my-lbl{
+	border: 1px solid #E3E3E3;
+	border-radius: 0.5em;
+	background-color: white;
+	color:#E3E3E3;
+}
+
+.reward{
+	font-weight: bold;
+	color: #F3AB4C;
+	margin-top: 0.6em;
+}
+
+.tweet.content p{
+	color: #333;
+}
+
+.btn-rounded{
+	border-radius: 30px 30px 30px 30px;
+    background-color: white;
+    border: 1px solid #2889D8;
+    color:#2889D8;
+    width: 8em;
+    font-size: 0.7em;
+    height: 2.5em;
+}
+
+.my-lbl.now{
+	color: #F64F5A;
+}
+
+.quoter.prof-pic-round{
+	margin-top: -1.5em;
+	margin-left: 1em;
+}
+
+.comment{
+	margin-bottom: 10px;
+}
+.wrapper{
+       width: 30em;
+}
+.profpic_quote{
+    color:#aaa;
+    font-size: 0.8em;
+}
+.profpic_quote span{
+      color: #2889D8;
+}
+.profpic_quote.comment{
+       color:#aaa;
+       font-size: 1em;
+}
+
+.post-pic{
+    width:300px;
+    height: auto;
+}
+.img-circle.comment{
+       width: 1.5em;
+       height: 1.5em;
+       background-color: gray;
+}
+
+.glyphicon-heart{
+    color: red;
+    font-size: 1.5em;
+}
+.glyphicon-cloud{
+   	color: gray;
+	font-size: 1.5em;
+}
+

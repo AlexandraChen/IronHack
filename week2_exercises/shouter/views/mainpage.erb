@@ -1,0 +1,81 @@
+<html>
+	<body>
+		<center>
+			<h1> Welcome to THE SHOUTER! </h1>
+			<br>
+			
+			<% if session[:id] != nil %>
+				<h3>Shouting as @<%= User.all.find_by_id(session[:id]).handle %></h3>
+				<a href="/shouts"> See all shouts </a>
+				<p>Not @<%= User.all.find_by_id(session[:id]).handle%>? <a href="/logout"> Log out here </a> <p>
+			<% end %>
+			<br>
+
+			<div>
+				<div>
+					<form action="/signup" method="POST">
+						<h2>Sign in</h2>
+						<p>Name</p>
+						<input name="name" type="text" size="25" />
+						<p>Username</p>
+						<input name="handle" type="text" size="25" />
+						<p>Password</p>
+						<input name="password" type="text" size="25" />
+						<br><br>
+					  	<input type="submit" name="action" value="Submit">
+					</form>
+				</div>
+
+				<div>
+					<form action="/login" method="POST">
+						<h2> Log in </h2>
+						<p>Username</p>
+						<input name="handle" type="text" size="25" />
+						<p>Password</p>
+						<input name="password" type="text" size="25" />
+						<br><br>
+					  	<input type="submit" name="action" value="Submit">
+					</form>
+				</div>
+			</div>
+			<br>
+			<h2> View shouts of: 
+				<form action="/:handle" method="POST">
+					<input name="selected_handle" type="text" />
+					<br>
+				  	<input type="submit" name="action" value="View shouts">
+				  	<br>
+					
+				</form>	
+			</h2>
+			
+			<h3> LATEST SHOUTS </h3>
+			<p> Sort by: </p>
+				<a href="/shouts/top">Top shouts</a> &nbsp; &nbsp;
+				<a href="/shouters/top">Top handles</a>
+
+			<% if !Shout.all.empty?  %>
+					<% Shout.all.reverse.each do |shout| %>
+						<div style="height:100px; width:250px;"> 
+							<br>
+							<%=shout.message%> 
+							<br> 
+							by @<%= shout.user.handle%>
+							<br>					
+							<%= shout.created_at %>
+							<br>
+							<form action="/likes" method="POST">
+								<input type="hidden" name="id" value="<%= shout.id %>">
+								<input type="submit" name="likes" action="/likes" value="Likes: <%= shout.likes %>">
+							</form>
+						</div>
+					<% end %>
+			<% else %>
+				<h2>No shouts to display</h2>
+			<% end %>
+					
+
+
+		</center>
+	</body>
+</html>

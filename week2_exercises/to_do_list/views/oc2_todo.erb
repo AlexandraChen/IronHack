@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h1>Welcome to your To Do List!</h1>
+
+      <form action="/task/new" method="POST">
+        <input name ="name" type="text"/>
+        <input name ="date" type="text" value= "<%= DateTime.now %>"/>
+        <input type="submit" value="Add task" />
+      </form>
+      
+      <ul>
+        <% @tasks.each do |task| %>
+          <li> <%= task.name %> </li> <!-- #delete when clicked -->
+        <% end %>
+      </ul>
+  </body>
+</html>

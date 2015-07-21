@@ -1,0 +1,94 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+body{
+	width: 100%;
+	text-align: center;
+}
+header{
+	height: 100px;
+	width: 1000px;
+	margin: auto;
+	margin-bottom: 10px;
+}
+header img{
+	float: left;
+	max-height: 90%;
+	padding-top: 10px;
+}
+header p{
+	font: bold 50px "Lucida Console", Monaco, monospace;
+	text-align: right;
+	padding-top: 30px;
+	color: #9D28C5;
+}
+#wrapper{	
+	display: inline-flex;
+}
+ul li{
+	list-style: none;
+}
+#first{
+	height: 380px;
+	margin: 20px 20px 20px 0px;
+	background: url("paragliding.png");
+}
+#second{
+	height: 280px;
+	margin: 0px 20px 20px 0px;
+	background: url("crush.jpg");
+}
+#third{
+	height: 280px;
+	background: url("boxing.jpg");
+}
+#first, #second, #third{
+	width: 780px;
+	background-position: center;
+	border-radius: 5px;
+}
+aside{
+	width: 200px;
+	height: 980px;
+	margin-top: 20px;
+	background-color: #CDCDCD;
+	border-radius: 5px;
+}
+.left{
+	text-align:left;
+	margin: 70px 20px 70px -2px;
+	color: white;
+}
+aside{
+	color: white;
+	font: bold 26px "Lucida Console", Monaco, monospace;
+}
+#beach, #eating{
+	font-size: 36px;
+}
+#wanderlust, #mt, #engineer{
+	font-size: 32px;
+}
+.right{
+	text-align:right;
+	margin: 70px -2px 70px 20px;
+}
+#cooking, #boxing{
+	font-size:42px;
+} 
+footer{
+	width: 100%;
+	height: 130px;
+	margin-top:20px;
+	background-color: #F2F2F2;
+}
+footer p{
+	text-align: center;
+	padding-top: 60px;
+	font: 14px Verdana;
+	color: #424242;
+}
+
+
+

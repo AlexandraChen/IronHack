@@ -1,0 +1,30 @@
+<html>
+	<body>
+		<h1> Welcome to the Address Book </h2>
+		
+		<h2> All the contacts </h2>
+
+		<%= form_tag("/contacts/search", method: "get") do %>
+    		<%= label_tag(:letter, "Search for:") %>
+    		<%= text_field_tag(:letter) %>
+    		<%= submit_tag("Search") %>
+    	<% end %>
+
+    	<p><%= link_to "Create new contact", new_contact_path %></p>
+
+		<ul>
+			<% @contacts.each do |contact| %>
+			<li>
+				<%=link_to contact.name, contact_path(contact) %> 
+			</li>
+			<% end %>
+		</ul>
+	
+		<hr />
+		<p> 
+			<%= link_to "View all contacts", contacts_path %> 
+			|
+			<%= link_to "View favorite contacts", contacts_favorite_path %>
+		</p>
+	</body>
+</html>

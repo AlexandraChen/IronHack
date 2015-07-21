@@ -1,0 +1,35 @@
+<html>
+<body>
+	
+
+	<%if @current_user %>
+		<h1>Hello <%= @current_user %></h1>
+<!-- 	<%#else%> -->
+ 		<h2>Sign up now!</h2>
+	  	<form action="/signup" method="POST">
+			<input name="username" type="text" />
+		  	<input type="submit" name="action" value="Submit">
+		</form>
+	<%end%>
+
+	<ul>
+		<% @users.each_with_index do |user, index| %>
+ 			<li>The name is <%= user %>. The ID is <%= index + 1%></li>
+ 		<% end %>
+ 	</ul>
+
+ 	<% if @users.any?%>
+
+			<%@users.each do |id, user| %>
+				<%= user %>
+			<% end %>
+	
+ 		<h2>The number of users is <%= @users.count %></h2>
+ 	<%else%>
+ 		<h2> No users yet </h2>
+ 	<%end%>
+
+
+ 	<p> If you are tired of people, here are some <a href = "/cats"> cats </a>
+</body>
+</html>

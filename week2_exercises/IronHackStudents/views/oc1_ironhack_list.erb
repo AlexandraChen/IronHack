@@ -1,0 +1,43 @@
+<html>
+	<body>
+		<h1>Welcome #IronHackers :) !</h1>
+
+	  	<form action='/student/new' method="POST">
+	  		<p> First name </p>
+			<input name="name" type="text" />
+
+			<p> Surnames </p>
+			<input name="surnames" type="text" />
+			
+			<p> Birthday </p>
+			<input name="birthday" type="text" />
+			
+			<p> Website </p>
+			<input name="website" type="text" />
+			
+			<p> Number of dogs </p>
+			<input name="number_of_dogs" type="text" />
+			
+			<p> First programming experience </p>
+			<input name="first_programming_experience" type="text" />
+			
+			<br><br>
+		  	<input type="submit" value="Add student">
+		</form>
+
+		<h2> We are <%= @students.count%> #IronHackers </h2>
+
+		<ul>
+			<% @students.each do |student| %>
+				<li>  <b> <%= student.name %> <%= student.surnames %> </b></li>
+				<p> Website: <a href <%= student.website%> > <%= student.website%> </a></p>
+				<p> Birthday: <%= student.birthday%> </p>
+				<p>Number of dogs: <%= student.number_of_dogs%> </p>
+				<p>Programming experience: <%= student.first_programming_experience%> </p>
+			<% end %>
+		</ul>
+		
+	</body>
+</html>
+
+

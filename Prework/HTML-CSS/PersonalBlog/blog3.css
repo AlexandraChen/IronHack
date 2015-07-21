@@ -1,0 +1,138 @@
+*{ 
+	margin: 0px;
+	padding: 0px;
+}
+header, section, footer, aside, nav, article, hgroup{
+	display: block;
+} 
+body{
+	width: 100%; 
+	display: -webkit-box;
+	-webkit-box-pack: center; 
+	background: #EFFBF8;
+}
+#big_wrapper{
+	margin: 20px 0px;
+	display: -webkit-box; 
+	-webkit-box-orient: vertical; 
+	-webkit-box-flex: 1;
+}
+#top_header{
+	background: url("sanblas.jpg");
+	padding: 20px;
+	text-align: center;
+}
+#title {
+	font: 40px Tahoma;
+	color: white;
+}
+#slogan {
+	font: 18px Tahoma;
+	padding-bottom: 10px;
+	color: white;
+}
+#top_menu{
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	background: #58D3F7;
+	color: white;
+	font: bold 14px Tahoma;
+	text-align: center;
+}
+#top_header img{
+	border: 4px solid white;
+	border-radius: 15px;
+}
+#top_menu a {
+	display: inline-block;
+	padding: 5px 30px 5px 30px;
+	list-style: none; 
+	font: bold 14px Tahoma;
+	color: white;
+}
+#top_menu a:hover{
+	color: #8258FA;
+	text-decoration: none
+}
+#blog{
+	display: -webkit-box;
+	-webkit-box-orient: horizontal; 
+}
+a:link{
+	color: blue;
+	text-decoration:none;
+	font-weight: bold;	
+}
+a:visited{
+	color: blue;
+	font-weight: bold;
+}
+a:hover{
+text-decoration:underline;
+color: #8258FA;
+}
+#main_section{
+	-webkit-box-flex: 1;
+	margin: 50px 60px 30px 130px ;
+}
+#article_title{
+	font:  bold 30px Tahoma;
+	padding-bottom: 15px;
+}
+article header h2{
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 40px;
+	color: #6E6E6E;
+}
+article footer p{
+	text-align: right;
+	font: 10px Tahoma;
+	margin-top: 10px;
+}
+article p{
+	text-align: justify;
+	text-justify: inter-word;
+	border-top: 40px;
+	font: 16px Tahoma;
+	color: #2E2E2E;
+	line-height: 150%;
+}
+#side_news{
+	background: #A9E2F3;
+	/*This won't be flexible. If we have two element flex, we won't now how much it's gona shrik or grow*/
+	/*One has to be fixed size*/
+	width: 180px;
+	height: 180px;
+	margin: 100px 130px 0px 10px;
+	padding: 20px;
+	
+}
+#side_news h3 {
+	font: bold 18px Tahoma;
+	padding: 12px;
+	text-align: center;
+	color: #6E6E6E;
+}
+#side_news p{
+	font: 12px Tahoma;
+	padding: 2px;
+	text-align: center;
+	color: #6E6E6E;
+}
+#footer{
+	text-align:center;
+	padding: 20px;
+	background: #58D3F7 ;
+	font: 14px Tahoma;
+	border-top: 3px white;
+	color: #6E6E6E;
+}
+article table {
+	width: 100%;
+	font: 14px Tahoma;
+	text-align: center;
+	border-spacing: 2px;
+}
+
+

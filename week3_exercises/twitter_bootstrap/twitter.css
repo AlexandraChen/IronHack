@@ -1,0 +1,51 @@
+
+
+.twitter{
+	border: 0.1em solid #CCCCCC;
+	height: 1100em;
+	border-radius: 0.7em;
+	background-color: white;
+}
+
+.logo{
+	width: 80%;
+	margin-top: -60%;
+	border: 0.5em solid white;
+	border-radius: 0.7em;
+}
+
+body{
+	background: #EEEEEE
+}
+
+.tw_account{
+	font-weight: bold;
+}
+.navigation{
+	background-color: white;
+}
+
+ .search-btn {
+    border-radius: 30px 30px 30px 30px;
+    cursor:pointer;
+}
+
+.top_image{
+	width: 100%;
+	height:500px;
+	background: url("top_image.png")
+}
+
+
+div#bar2 {
+    background-color: white;
+    margin-bottom: 0.5em;
+}
+
+.li-u :hover{
+	border-bottom: 0.4em solid #2EABAB;
+}
+
+#tweet-btn{
+	background-color: #2EABAB;
+}

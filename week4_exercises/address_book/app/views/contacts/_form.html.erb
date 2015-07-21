@@ -1,0 +1,47 @@
+
+<%= form_for(@contact) do |field| %>
+
+	<%= render 'layouts/errors', model: @contact%>
+
+	<div>
+		<%= field.label :name %>
+		<br>
+		<%= field.text_field :name %>
+	</div>
+
+	<div>
+		<%= field.label :address %>
+		<br>
+		<%= field.text_area :address %>
+	</div>
+
+	<div>
+		<%= field.label :phone %>
+		<br>
+		<%= field.text_field :phone1 %>
+	</div>
+
+	<div>
+		<%= field.label :secondary_phone %>
+		<br>
+		<%= field.text_field :phone2 %>
+	</div>
+
+	<div>
+		<%= field.label :email %>
+		<br>
+		<%= field.text_field :email1 %>
+	</div>
+
+	<div>
+		<%= field.label :secondary_email %>
+		<br>
+		<%= field.text_field :email2 %>
+	</div>
+
+	<div>
+		<%= field.submit %>
+	</div>
+<% end %>
+
+<%= link_to "View all contacts", contacts_path %> 

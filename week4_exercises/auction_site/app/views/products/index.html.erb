@@ -1,0 +1,24 @@
+<h2>All Products</h2>
+
+<% if @products.present?%>
+	<ul>
+		<%@products.each do |product| %>
+			<div>
+				Product:<strong> <%= link_to product.title, product_path(product.id) %></strong>
+				<br>
+				Description: <%= product.description %>
+				<br>
+				Bidding deadline: <%= product.bidding_deadline.strftime("%d-%m-%y") %>
+				<br>
+				From user: <%= product.user.name %>
+				<%=  %>
+			</div>
+			<br>
+		<% end %>
+	</ul>
+<% else %>
+		<p>No products yet!</p>	
+<% end %>
+
+<h5> New user? <br> <%= link_to "Create new account", new_user_path %> </h5>
+ 

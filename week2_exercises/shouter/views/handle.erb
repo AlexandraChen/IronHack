@@ -1,0 +1,42 @@
+<html>
+	<body>
+		<center>
+			<h1> The Shouter </h1>
+			<a href="/"> HOME </a>
+			<% if session[:id] != nil %>
+				<h3>Shouting as @<%= User.all.find_by_id(session[:id]).handle  %></h3>
+
+				<p>Not @<%= User.all.find_by(session[:id]).handle%>? <a href="/logout"> Log out here </a> <p>
+			<% end %>
+			<br>
+			<%if @user === nil %>
+				<h2>Sorry. That handle does not exist.<a href='/'> Try again </a> </h2>
+			<% else %>
+				<h3> LATEST SHOUTS BY  @<%= @user.handle %> </h3>
+				<% if !@user.shouts.empty?  %>
+					<% @user.shouts.each do |shout| %>
+						<div style="height:100px; width:250px;"> 
+							<br>
+							<%=shout.message%> 
+							<br> 
+							by @<%= shout.user.handle%>
+							<br>					
+							<%= shout.created_at %>
+							<br>
+							<form action="/likes" method="POST">
+								<input type="hidden" name="id" value="<%= shout.id %>">
+								<input type="submit" name="likes" action="/likes" value="Likes: <%= shout.likes %>">
+							</form>
+						</div>
+					<% end %>
+				<% end %>
+			<% end %>
+
+
+			<br><br>
+			
+			<a href="/logout"> Log out </a>
+
+			</center>
+	</body>
+</html>

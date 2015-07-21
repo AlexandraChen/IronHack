@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Spotify </title>
+		<link rel="stylesheet" href="main.css"> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class = "row">
+				<div class = "col-sm-12">
+					<h1>Spotify Reloaded</h1>
+				</div>
+			</div>
+			<div class = "row">
+				<div class = "col-sm-4">
+					<h2>Search artists</h1>
+
+					<form class="artistSearch">
+			    		<input type="text" name="q" placeholder="Search artist" class="artistInput" >
+			    		<button class="search" id="btn-search-artist">Search</button>
+					</form>
+				
+					<ul class="results" id="results_albums">
+					</ul>
+				</div>
+
+				<div class = "col-sm-4 song-player">
+					<div class="widget">
+						<div class="header">
+						<!-- Try adding/removing these classes: -->
+						<!-- disabled -->
+						<!-- playing -->
+						<div class="btn-play"></div>
+
+						<div class="metadata">
+						  <p class="title">Hunger of The Pine</p>
+						  <p class="author">alt-J</p>
+
+						  <div class="seekbar">
+						    <progress value="5" max="30"></progress>
+						  </div>
+						</div>
+						</div>
+						<div class="cover">
+						<img src="https://i.scdn.co/image/04da6dfc1f5f45fdeba938a0cc71cf372524fd43" class="trackCover">
+						</div>
+
+						<audio src="https://p.scdn.co/mp3-preview/8e9c5ffdc38e91659bfe8b6bd44650dfc25a3d31"></audio>
+					</div>
+				</div>
+		
+				<div class = "col-sm-4 pull-right">
+					<h2>Search songs</h1>
+
+					<form class="searchTrack">
+			    		<input type="text" name="q" placeholder="Search songs" class="trackInput">
+			    		<button class="search" id="searchTrack">Search</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="artist_search.js"></script>
+	<script type="text/javascript" src="album_search.js"></script>
+	<script type="text/javascript" src="songs_search.js"></script>
+	<script>
+		var artist = new ArtistSearch()
+		var song = new SongSearch()
+	</script>
+	</body>
+</html>

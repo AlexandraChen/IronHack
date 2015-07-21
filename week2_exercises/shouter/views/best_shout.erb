@@ -1,0 +1,40 @@
+<html>
+	<body>
+		<center>
+			<h1> The Shouter </h1>
+			<a href="/"> HOME </a>
+			<p> Shouting as: @<%= User.all.find_by_id(session[:id]).handle %> </p>
+			<a href="/logout"> Log out </a>
+			<br>
+			<br>
+			<h2> Best shouts </h2>
+			<a href="/shouts"> See all shouts </a>
+	
+				<% if !Shout.all.empty?  %>
+
+					<% @shouts.each do |shout| %>
+						<div style="height:100px; width:250px;"> 
+							<br>
+							<%=shout.message%> 
+							<br> 
+							by @<%= shout.user.handle%>
+							<br>					
+							<%= shout.created_at %>
+							<br>
+							<form action="/likes" method="POST">
+								<input type="hidden" name="id" value="<%= shout.id %>">
+								<input type="submit" name="likes" action="/likes" value="Likes: <%= shout.likes %>">
+							</form>
+						</div>
+					<% end %>
+				<% else %>
+					<h3>No shouts to display</h3>
+				<% end %>
+
+			<br><br><br>
+			
+			<a href="/logout"> Log out </a>
+
+			</center>
+	</body>
+</html>
