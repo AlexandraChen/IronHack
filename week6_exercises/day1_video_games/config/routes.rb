@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   get '/' => 'tournaments#index'
+  get '/api/tournaments.json' => 'tournaments#all'
+
+  post '/api/tournaments' => 'tournaments#create'
+
+  delete '/api/tournaments/:id' => 'tournaments#destroy'
 
   resources :player
   resources :tournament
