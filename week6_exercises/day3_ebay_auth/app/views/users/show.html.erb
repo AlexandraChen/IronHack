@@ -1,0 +1,21 @@
+
+<h2><%= @user.name %></h2>
+ 
+<h4>My products: </h4>
+<% if @user.products.present?%>
+	<%@user.products.each do |product| %>
+			<h4><%= link_to product.title, user_product_path(@user.id, product.id) %></h4>
+	<% end %>
+<% else %>
+	<p>No products added yet! :(</p>	
+<% end %>
+<br>
+ <% if current_user %> 
+ 	<% if current_user.id === @user.id %>
+		<%= link_to "Add new product", new_user_product_path(@user.id) %>
+		<br>
+		<%=link_to "Delete my account", @user, method: :delete, data: {confirm: "Are you sure? Please don't leave us! :("} %>
+	<% end %>
+<% end %>
+
+
