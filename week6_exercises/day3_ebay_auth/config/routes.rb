@@ -1,4 +1,3 @@
-
 Rails.application.routes.draw do
 
   get "/" => "sites#home"
@@ -9,7 +8,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show, :destroy, :index] do
     resources :products, only: [:new, :create, :show, :destroy, :index]
-   end 
-   resources :products, only: [:new, :create, :destroy, :index]
+  end 
+  
+  resources :products, only: [:new, :create, :destroy, :index]
+
+  resources :reviews, only: [:create]
+
 
 end

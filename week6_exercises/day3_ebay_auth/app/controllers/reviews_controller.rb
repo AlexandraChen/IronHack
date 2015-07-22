@@ -1,20 +1,19 @@
 class ReviewsController < ApplicationController
 
 	def create
-		@product = Product.find(params[:product_id])
-		@review = Review.new(review_params)
+		@review = current_user.reviews.new(review_params)
 
 		if @review.valid?
 			@review.save
-			redirect_to product_path(@product), notice: 'Review succesfully posted!'
+			redirect_to product_path(@review.product), notice: 'Review succesfully posted!'
 		else
-			redirect_to '/', notice: 'Please enter a review before submitting'
+			redirect_to product_path(@review.product), notice: 'Something went wrong :( Please try again'
 		end
 	end
 
 	private
 	def review_params
-		params.require(:review).permit(:description, :product_id, :user_id)
+		params.require(:review).permit(:description, :product_id)
 	end
 
 end

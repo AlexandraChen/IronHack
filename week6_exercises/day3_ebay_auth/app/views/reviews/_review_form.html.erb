@@ -1,0 +1,24 @@
+<div class="comments-form">
+	<%= form_for review do |f| %>
+		<% if current_user %>
+			 <div>
+				<%= f.label :description %>
+				<br>
+				<%= f.text_area :description %>
+				<%= f.hidden_field :product_id, value: product.id %>
+			</div>
+			<br>
+			<div class="btn">
+				<%= f.submit %>
+			</div>
+
+		<% else %>
+			<%= link_to "Sign up", new_user_path %>
+			or
+			<%= link_to 'Log in', login_path %>
+			to write a review
+		<% end %>
+	<% end %>
+</div>
+
+
