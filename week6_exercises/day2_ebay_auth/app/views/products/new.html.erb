@@ -1,0 +1,29 @@
+<h2>New product</h2>
+
+<%= form_for [@user, @product] do |f| %>
+	 <div>
+		<%= f.label :title %>
+		<br />
+		<%= f.text_field :title%>
+	</div>
+	 <div>
+		<%= f.label :description %>
+		<br />
+		<%= f.text_field :description %>
+	</div>
+	<div>
+		<%= f.label "Bidding ends on:" %>
+		<br />
+		<%= f.date_field :bidding_deadline%>
+	</div>
+
+
+	<div>
+		
+		<br />
+		<%= f.hidden_field :user_id %>
+
+	<div>
+		<%= f.submit %>
+	 </div>
+<% end %>
