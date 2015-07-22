@@ -1,0 +1,35 @@
+<!-- sites home page-->
+<center>
+
+<div class = "container">
+	<div class = "row">
+		<div class = "col-sm-6 col-sm-offset-3 pull-left">
+			<h3>What's happening today?</h3>
+				<% if @concerts.empty? %>
+					<h4>We are sorry :( Nothing for today.</h4>
+				<% else %>
+					<% @concerts.each do |concert| %>
+						<div>
+							<%= link_to concert.band, concert_path(concert.id)%> is playing at <%= concert.city %>
+						</div>
+					<% end %>
+				<br>
+			<% end %>
+		</div>
+	
+	<div class = "col-sm-2 pull-right ">
+	<h3>What's happening later this month?</h3>
+		<% if @current_month_concerts.empty? %>
+			<h4>We are sorry :( Nothing for this month.</h4>
+		<% else %>
+			<% @current_month_concerts.each do |concert| %>
+				<div>
+					<%= link_to concert.band, concert_path(concert.id)%> on <%= concert.date.strftime("%d/%m") %>
+				</div>
+		<% end %>
+			<br>
+		<% end %>
+	</div>
+</div>
+
+</center>
