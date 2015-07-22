@@ -1,3 +1,4 @@
+
 <h2><%= @user.name %></h2>
  
 <h4>My products: </h4>
@@ -10,13 +11,13 @@
 		<% end %>
 	</ul>
 <% else %>
-	<p>No products added yet! :(</p>
-	
+	<p>No products added yet! :(</p>	
+<% end %>
+
+ <% if current_user.id === @user.id %>
+	<%= link_to "Add new product", new_user_product_path(@user.id) %>
+	<br><br>
+	<%=link_to "Delete my account", @user, method: :delete, data: {confirm: "Are you sure? Please don't leave us! :("} %>
 <% end %>
 
 
-<%= link_to "Add new product", new_user_product_path(@user.id) %>
-<br><br><br>
-<%=link_to "Delete my account", @user, method: :delete, data: {confirm: "Are you sure? Please don't leave us! :("} %>
-
- 

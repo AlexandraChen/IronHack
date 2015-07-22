@@ -14,7 +14,7 @@
 
   <div class="page-header"> 
     <% if current_user %>
-      <%= link_to 'Log out', logout_path %>
+      Log in as <%= link_to current_user.name, user_path(current_user.id) %> | <%= link_to 'Log out', logout_path %>
     <% else %>
       <%= link_to "Sign up", new_user_path %>
       |
@@ -24,7 +24,7 @@
   <%= yield %>
 
  <hr />
-  <%= link_to "HOME", "/" %>
+  <%= link_to "Home", "/" %>
   |
   <%= link_to "All products", products_path %>
   |
