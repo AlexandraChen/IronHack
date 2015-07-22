@@ -13,13 +13,11 @@ class TournamentsController < ApplicationController
   	if tournament.valid?
   		tournament.save
   		render json: tournament, status: 201
-  		
   	else
   		render :index
   	end
 
   end
-  
 
   def destroy
   	tournament = Tournament.find(params[:id])
