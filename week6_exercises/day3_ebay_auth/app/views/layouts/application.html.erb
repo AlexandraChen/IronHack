@@ -7,22 +7,21 @@
       <%= csrf_meta_tags %>
   </head>
   <body>
-  <center>
-    <div class="page-header"> 
-      <img src="/assets/ebay-logo.jpg" id="logo">
-      <br>
-      <% flash.each do |key, value| %>
-        <%= content_tag :div, value, class: "alert alert-info" %>
-      <% end %>
-      <% if current_user %>
-        Log in as <%= link_to current_user.name, user_path(current_user.id) %> | <%= link_to 'Log out', logout_path %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        |
-        <%= link_to 'Log in', login_path %>
-      <% end %>
-    </div>
-  </center>
+    <center>
+      <div class="page-header"> 
+        <%= link_to image_tag("ebay-logo.jpg"), "/", id:"logo"%>
+        <% flash.each do |key, value| %>
+          <%= content_tag :div, value, class: "alert alert-info" %>
+        <% end %>
+        <% if current_user %>
+          <p>Log in as <%= link_to current_user.name, user_path(current_user.id) %> | <%= link_to 'Log out', logout_path %></p>
+        <% else %>
+          <%= link_to "Sign up", new_user_path %>
+          |
+          <%= link_to 'Log in', login_path %>
+        <% end %>
+      </div>
+    </center>
     <%= yield %>
     <center>
      <hr />

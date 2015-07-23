@@ -1,19 +1,17 @@
 <div class="container">	
 	<div class = "row">
 		<div class = "col-sm-5 col-sm-offset-1">
-
-
 			<h2><%= @product.title %></h2>
 			<div class="well well-lg">
 				<p>Description: <%= @product.description %></p>
 				<p>Bidding ends at: <%= @product.bidding_deadline %></p>
 				<p>From user: <%= User.find(@product.user_id).name %></p>
+				<%= link_to 'Buy it now', products_path(@product.id), class:"btn btn-primary btn-lg" %>
 			</div>
 			<%=link_to "See other products from this user", user_path(@product.user_id) %>
 			<br>
 		</div>
-
-		<div class = "col-sm-5">
+		<div class = "col-sm-5 review">
 			<h4><strong>Product's reviews</strong></h4>
 			<% if @reviews.empty? %>
 				<p> No reviews for this product yet!</p>
@@ -25,7 +23,7 @@
 							|
 							Date: <%= review.created_at.strftime("%d/%m/%y") %>
 							<% if current_user === User.find(review.user_id)%>
-								| link_to EDIT 
+								| <%= link_to "Edit", edit_review_path(review.id)%>
 							<% end  %>
 						</div>
 						<div class="panel-body">
@@ -34,6 +32,7 @@
 					</div>
 				<% end %>
 			<% end %>
+		
 			<%= render partial: 'reviews/review_form', locals: {review: @review, product: @product} %>
 		</div>
 	</div>

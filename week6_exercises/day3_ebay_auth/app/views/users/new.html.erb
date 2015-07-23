@@ -1,17 +1,19 @@
 <div class = "container">
-	<h1>Sign up!</h1>
-
-	<%= form_for @user, url: '/users' do |f| %>
-
-	  Name: <%= f.text_field :name %>
-	  <br>
-	  Email: <%= f.text_field :email %>
-	  <br>
-	  Password: <%= f.password_field :password %>
-	   <br>
-	  Password Confirmation: <%= f.password_field :password_confirmation %>
-	  <br>
-	  <%= f.submit "Submit" %>
-
-	<% end %>
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<h1>Sign up!</h1>
+			<%= form_for @user, url: '/users' do |f| %>
+				<%= f.label "Username" %>
+			  <%= f.text_field :name, class: "form-control", placeholder:"Username" %>
+			  <%= f.label :email %>
+			  <%= f.text_field :email, class: "form-control", placeholder: :email, type: "email" %>
+			  <%= f.label :password %>
+			  <%= f.password_field :password, class: "form-control", placeholder: :password %>
+			   <%= f.label :password_confirmation %>
+			   <%= f.password_field :password_confirmation, class: "form-control", placeholder: :password_confirmation  %>
+			  <%= f.submit "Submit", class: "btn btn-default", id: "submit" %>
+			<% end %>
+		</form>
+		</div>
+	</div>
 </div>

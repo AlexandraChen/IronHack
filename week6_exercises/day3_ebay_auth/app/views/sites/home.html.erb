@@ -1,22 +1,17 @@
-<center>
-	<h3> New user? <br> <%= link_to "Create new account", new_user_path %> </h3>
-	<br>
-	<br>
-	<% if @products.present?%>
-		<%@products.each do |product| %>
-			<div>
-				<h4><strong> <%= link_to product.title, product_path(product.id) %></strong></h4>
-				Description: <%= product.description %>
-				<br>
-				Bidding deadline: <%= product.bidding_deadline.strftime("%d-%m-%y") %>
-				<br>
-				From user: <%= product.user.name %>
-				<%=  %>
-			<% end %>
+<div class="jumbotron" id="welcome-panel">
+	<div class = "container">
+		<div class="row">
+			<div class="col-sm-7 col-sm-offset-2">
+				<% if current_user %>
+					<h1> Hello, <%= current_user.name.capitalize %>!</h1>
+				<% else %>
+					 <h1>Hello, world!</h1>
+				<% end %>
+			  <p>Best products everrr!</p>
+				<%= link_to 'See all products', products_path, class:"btn btn-primary btn-lg" %>
+			</div>
+			<h3> New user? <br> <%= link_to "Create new account", new_user_path %> </h3>
 		</div>
-		<br>
-	<% else %>
-			<p>Sign up and be the first to post a product!</p>	
-	<% end %>
-</center>
+	</div>
+</div>
 

@@ -1,4 +1,17 @@
-#logo{
-	height:150px;
+#logo>img{
+	height:7em;
 	width: auto;
 }
+#submit{
+	margin-top: 1em;
+}
+.review{
+	margin-top: 1.8em;
+}
+div#welcome-panel{
+	background: url('/assets/shopping.jpg');
+}
+.users{
+	text-align: center;
+}
+

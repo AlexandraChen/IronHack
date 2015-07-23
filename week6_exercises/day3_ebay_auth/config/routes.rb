@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get "/" => "sites#home"
   get "/products/:id" => "products#show_product"
   get '/login'  => 'sessions#new'
@@ -11,8 +10,5 @@ Rails.application.routes.draw do
   end 
   
   resources :products, only: [:new, :create, :destroy, :index]
-
-  resources :reviews, only: [:create]
-
-
+  resources :reviews, only: [:create, :update, :edit]
 end
