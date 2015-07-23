@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>AuctionSite</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>AuctionSite</title>
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+  </head>
+  <body>
   <center>
-	 <% flash.each do |key, value| %>
-	    <%= content_tag :div, value, class: "alert alert-info" %>
-	  <% end %>
-
-  <div class="page-header"> 
-    <% if current_user %>
-      Log in as <%= link_to current_user.name, user_path(current_user.id) %> | <%= link_to 'Log out', logout_path %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      |
-      <%= link_to 'Log in', login_path %>
-    <% end %>
-  </div>
-  <%= yield %>
-
- <hr />
-  <%= link_to "Home", "/" %>
-  |
-  <%= link_to "All products", products_path %>
-  |
-  <%= link_to "All users", users_path %>
-
+    <div class="page-header"> 
+      <img src="/assets/ebay-logo.jpg" id="logo">
+      <br>
+      <% flash.each do |key, value| %>
+        <%= content_tag :div, value, class: "alert alert-info" %>
+      <% end %>
+      <% if current_user %>
+        Log in as <%= link_to current_user.name, user_path(current_user.id) %> | <%= link_to 'Log out', logout_path %>
+      <% else %>
+        <%= link_to "Sign up", new_user_path %>
+        |
+        <%= link_to 'Log in', login_path %>
+      <% end %>
+    </div>
   </center>
-</body>
+    <%= yield %>
+    <center>
+     <hr />
+      <%= link_to "Home", "/" %>
+      |
+      <%= link_to "All products", products_path %>
+      |
+      <%= link_to "All users", users_path %>
+    </center>
+  </body>
 </html>

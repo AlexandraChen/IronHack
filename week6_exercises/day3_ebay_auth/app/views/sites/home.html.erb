@@ -1,8 +1,22 @@
 <center>
-<h1> Welcome to Ebay!</h1>
-
-<h3> New user? <br> <%= link_to "Create new account", new_user_path %> </h3>
-<br>
-<br>
+	<h3> New user? <br> <%= link_to "Create new account", new_user_path %> </h3>
+	<br>
+	<br>
+	<% if @products.present?%>
+		<%@products.each do |product| %>
+			<div>
+				<h4><strong> <%= link_to product.title, product_path(product.id) %></strong></h4>
+				Description: <%= product.description %>
+				<br>
+				Bidding deadline: <%= product.bidding_deadline.strftime("%d-%m-%y") %>
+				<br>
+				From user: <%= product.user.name %>
+				<%=  %>
+			<% end %>
+		</div>
+		<br>
+	<% else %>
+			<p>Sign up and be the first to post a product!</p>	
+	<% end %>
 </center>
 

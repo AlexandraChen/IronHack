@@ -1,34 +1,40 @@
-<h2><%= @product.title %></h2>
+<div class="container">	
+	<div class = "row">
+		<div class = "col-sm-5 col-sm-offset-1">
 
-<% @product.attributes.each do |key, value| %>
-	<div>
-		<%= key %>:  <%= value %>
-	</div>
-<%end %>
-<br>
-<div class = "row">
-	<div class = "col-sm-6 col-sm-offset-3">
-		<h4><strong>Product's reviews</strong></h4>
-		<% if @reviews.empty? %>
-			<p> No reviews for this product yet!</p>
-		<% else %>
-			<% @reviews.each do |review| %>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						Posted by: <%= User.find(review.user_id).name %>
-						<br>
-						Date: <%= review.created_at.strftime("%d/%m/%y") %>
+
+			<h2><%= @product.title %></h2>
+			<div class="well well-lg">
+				<p>Description: <%= @product.description %></p>
+				<p>Bidding ends at: <%= @product.bidding_deadline %></p>
+				<p>From user: <%= User.find(@product.user_id).name %></p>
+			</div>
+			<%=link_to "See other products from this user", user_path(@product.user_id) %>
+			<br>
+		</div>
+
+		<div class = "col-sm-5">
+			<h4><strong>Product's reviews</strong></h4>
+			<% if @reviews.empty? %>
+				<p> No reviews for this product yet!</p>
+			<% else %>
+				<% @reviews.each do |review| %>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							Posted by: <%= User.find(review.user_id).name %>
+							|
+							Date: <%= review.created_at.strftime("%d/%m/%y") %>
+							<% if current_user === User.find(review.user_id)%>
+								| link_to EDIT 
+							<% end  %>
+						</div>
+						<div class="panel-body">
+							<%= review.description %>
+						</div>
 					</div>
-					<div class="panel-body">
-						<%= review.description %>
-					</div>
-				</div>
+				<% end %>
 			<% end %>
-		<% end %>
-		<%= render partial: 'reviews/review_form', locals: {review: @review, product: @product} %>
+			<%= render partial: 'reviews/review_form', locals: {review: @review, product: @product} %>
+		</div>
 	</div>
 </div>
-
-
-
-<%=link_to "See other products from this user", user_path(@product.user_id) %>
