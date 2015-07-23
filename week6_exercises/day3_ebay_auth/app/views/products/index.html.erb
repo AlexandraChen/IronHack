@@ -1,26 +1,31 @@
-<center>	
-	<h2>All Products</h2>
-
-	<% if @products.present?%>
-		<ul>
-			<%@products.each do |product| %>
-				<div>
-					Product:<strong> <%= link_to product.title, product_path(product.id) %></strong>
-					<br>
-					Description: <%= product.description %>
-					<br>
-					Bidding deadline: <%= product.bidding_deadline.strftime("%d-%m-%y") %>
-					<br>
-					From user: <%= product.user.name %>
-					<%=  %>
-				</div>
-				<br>
+<div class="container">	
+	<div class = "row">
+		<div class = "col-sm-4 col-sm-offset-4 products">	
+			<h2>All Products</h2>
+			<% if @products.present?%>
+					<%@products.each do |product| %>
+					<div class="product">
+						<h3>
+							<strong> <%= link_to product.title, product_path(product.id) %></strong>
+						</h3>
+							Description: <%= product.description %>
+						<p>
+							Bidding deadline: <%= product.bidding_deadline.strftime("%d-%m-%y") %>
+						</p>
+						<p>
+							From user: <%= link_to product.user.name, user_path(product.user.id) %>
+							<%=  %>
+						</p>
+						</div>
+					<% end %>
+				</ul>
+			<% else %>
+					<p>No products yet!</p>	
 			<% end %>
-		</ul>
-	<% else %>
-			<p>No products yet!</p>	
-	<% end %>
 
-	<h5> New user? <br> <%= link_to "Create new account", new_user_path %> </h5>
-</center>	
+			<h5> New user? <br> <%= link_to "Create new account", new_user_path %> </h5>
+		</div>
+	</div>
+</div>
+
 	 

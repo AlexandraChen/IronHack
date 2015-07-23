@@ -6,23 +6,23 @@
 				<p>Description: <%= @product.description %></p>
 				<p>Bidding ends at: <%= @product.bidding_deadline %></p>
 				<p>From user: <%= User.find(@product.user_id).name %></p>
-				<%= link_to 'Buy it now', products_path(@product.id), class:"btn btn-primary btn-lg" %>
+				<p><%= link_to 'Buy it now', products_path(@product.id), class:"btn btn-primary btn-lg" %> for <%= @product.price %> </p>
 			</div>
 			<%=link_to "See other products from this user", user_path(@product.user_id) %>
 			<br>
 		</div>
 		<div class = "col-sm-5 review">
 			<h4><strong>Product's reviews</strong></h4>
-			<% if @reviews.empty? %>
+			<% if @product.reviews.empty? %>
 				<p> No reviews for this product yet!</p>
 			<% else %>
-				<% @reviews.each do |review| %>
+				<% @product.reviews.each do |review| %>
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							Posted by: <%= User.find(review.user_id).name %>
+							Posted by: <%= review.user.name %>
 							|
 							Date: <%= review.created_at.strftime("%d/%m/%y") %>
-							<% if current_user === User.find(review.user_id)%>
+							<% if current_user === review.user %>
 								| <%= link_to "Edit", edit_review_path(review.id)%>
 							<% end  %>
 						</div>

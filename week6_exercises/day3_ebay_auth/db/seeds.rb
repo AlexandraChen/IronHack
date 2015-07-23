@@ -1,18 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# puts "Creating new users!"
 
-puts "Creating new users!"
-name = %w(Alexandra Llorenc Will Pete Tony Jenny Alex Adreu Eliza Shannon Nacho Jose Warwick Bogdan Baptiste)
-last_name = %w(Chen Eisteibar Sanchez Cravens Quintero Sullivan Burke Cohen Henao)
-email = %w(@gmail.com @hotmail.com @yahoo.com)
+# 10.times do
+# 	User.create(
+# 		name: Faker::Name.first_name,
+# 		email: Faker::Internet.email,
+# 		password: Faker::Internet.password
+# 	)
+# end
 
+puts "Creating new products!"
 
-10.times do 
-	user = User.create(name: "#{name.sample} #{last_name.sample}", email: "#{name.sample}#{email.sample}")
+Product.destroy_all
+
+user_id_array = []
+
+User.all.each do |user|
+	user_id_array << user.id
 end
+
+10.times do
+	Product.create(
+		title:            Faker::Lorem.word,
+		bidding_deadline: Faker::Date.forward(30),
+		description:      Faker::Lorem.paragraph,
+		user_id:          user_id_array.sample,
+		price:            Faker::Number.decimal(2,2)
+	)
+end
+
+
+
+
+
+#bidding_deadline: Faker::Date.forward(30) 	price: Faker::Number.decimal(2, 2),

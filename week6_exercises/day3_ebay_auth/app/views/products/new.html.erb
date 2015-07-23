@@ -1,26 +1,22 @@
-<h2>New product</h2>
+<div class = "container">
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<h2>New product</h2>
+			<%= form_for [@user, @product] do |f| %>
+					<%= f.label :title %>
+					<%= f.text_field :title, class: "form-control", placeholder:"Product title"%>
+					<%= f.label :description %>
+					<%= f.text_field :description, class: "form-control", placeholder: :description %>
+					<%= f.label :bidding_deadline %>
+					<%= f.date_field :bidding_deadline, class: "form-control", placeholder: :bidding_deadline%>
+					<%= f.label :price %>
+					<%= f.number_field :price, class: "form-control", placeholder: :price%>
+					<%= f.hidden_field :user_id %>
+					<%= f.submit "Add product", class: "btn btn-primary", id: "submit"  %>
+			<% end %>
+		</div>
+	</div>
+</div>
 
-<%= form_for [@user, @product] do |f| %>
-	 <div>
-		<%= f.label :title %>
-		<br />
-		<%= f.text_field :title%>
-	</div>
-	 <div>
-		<%= f.label :description %>
-		<br />
-		<%= f.text_field :description %>
-	</div>
-	<div>
-		<%= f.label "Bidding ends on:" %>
-		<br />
-		<%= f.date_field :bidding_deadline%>
-	</div>
-	<div>	
-		<br />
-		<%= f.hidden_field :user_id %>
-	<div>
-		<%= f.submit %>
-	 </div>
-<% end %>
+
 

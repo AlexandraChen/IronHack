@@ -16,9 +16,9 @@
         <% if current_user %>
           <p>Log in as <%= link_to current_user.name, user_path(current_user.id) %> | <%= link_to 'Log out', logout_path %></p>
         <% else %>
-          <%= link_to "Sign up", new_user_path %>
+          <p><%= link_to "Sign up", new_user_path %>
           |
-          <%= link_to 'Log in', login_path %>
+          <%= link_to 'Log in', login_path %></p>
         <% end %>
       </div>
     </center>

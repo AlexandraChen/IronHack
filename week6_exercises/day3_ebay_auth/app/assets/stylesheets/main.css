@@ -11,7 +11,7 @@
 div#welcome-panel{
 	background: url('/assets/shopping.jpg');
 }
-.users{
+.users, .products{
 	text-align: center;
 }
 

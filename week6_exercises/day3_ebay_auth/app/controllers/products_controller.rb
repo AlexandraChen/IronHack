@@ -5,11 +5,11 @@ class ProductsController < ApplicationController
 
 	def show
 		@product = Product.find(params[:id])
+		@user = User.find(params[:user_id])
 	end
 
 	def show_product
 		@product = Product.find(params[:id])
-		@reviews = Review.all.order(created_at: :desc)
 		@review = Review.new
 	end
 
@@ -32,14 +32,14 @@ class ProductsController < ApplicationController
 
 	def destroy
 		@user = User.find_by(id: params[:user_id])
-	   @product = Product.find_by(id: params[:id]).try(:destroy)
+	  @product = Product.find_by(id: params[:id]).try(:destroy)
 
-	   redirect_to user_path(@user), notice: "Product #{@product} was succesfully destroyed"
+	  redirect_to user_path(@user), notice: "Product #{@product.tile} was succesfully destroyed"
 	end
 
 	private
   # Never trust parameters from the scary internet, only allow the white list through.
 	def product_params
-		params.require(:product).permit(:title, :user_id,:description,:bidding_deadline)
+		params.require(:product).permit(:title, :user_id,:description,:bidding_deadline, :price)
 	end
 end
