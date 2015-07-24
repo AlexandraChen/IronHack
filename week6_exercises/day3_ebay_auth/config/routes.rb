@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get "/" => "sites#home"
-  get "/products/:id" => "products#show_product"
-  get '/login'  => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#delete'
+  get "/"               => "sites#home"
+  get "/products/:id"   => "products#show_product"
+  get '/login'          => 'sessions#new'
+  post '/login'         => 'sessions#create'
+  get '/logout'         => 'sessions#delete'
+  get 'product/:id/buy' => 'products#buy'
 
   resources :users, only: [:new, :create, :show, :destroy, :index] do
     resources :products, only: [:new, :create, :show, :destroy, :index]

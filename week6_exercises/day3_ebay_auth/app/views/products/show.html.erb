@@ -5,7 +5,7 @@
 			<div class="well well-lg">
 				<p>Description: <%= @product.description %></p>
 				<p>Bidding ends at: <%= @product.bidding_deadline %></p>
-				<p>From user: <%= User.find(@product.user_id).name %></p>
+				<p>From user: <%= @product.user.name,capitalize %></p>
 				<p><%= link_to 'Buy it now', products_path(@product.id), class:"btn btn-primary btn-lg" %> for <%= @product.price %> </p>
 			</div>
 			<%=link_to "See other products from this user", user_path(@product.user_id) %>
